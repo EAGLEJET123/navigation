@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign In / Sign Up — Your Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+      :root{ --accent: #0d6efd }
+      body{background: linear-gradient(180deg, #f8fafc 0%, #ffffff 50%);}
+      .auth-card{max-width:980px; margin:48px auto; border-radius:14px; overflow:hidden; box-shadow:0 10px 30px rgba(13,23,40,0.06)}
+      .auth-left{background:linear-gradient(135deg, rgba(13,110,253,0.06), rgba(13,110,253,0.02)); padding:36px}
+      .auth-right{padding:36px}
+      .brand-logo{height:40px}
+      .social-btn{border-radius:10px}
+      .password-toggle{cursor:pointer}
+      .form-floating > .invalid-feedback{margin-top:.25rem}
+      @media (max-width: 767.98px){
+        .auth-card{margin:16px}
+        .auth-left{display:none}
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="auth-card row g-0">
+
+        <!-- Left: visual / marketing (hidden on small screens) -->
+        <div class="col-md-5 auth-left d-flex flex-column justify-content-center">
+          <div class="mb-4 d-flex align-items-center gap-2">
+            <img src="https://logo.com/image-cdn/images/kts928pd/production/88683355c0c634d79d7c2a943ed71c104e08d6b7-800x800.webp?w=512&q=70&fm=webp" alt="Brand" class="brand-logo">
+          </div>
+          <h3 class="fw-bold">Welcome to Your Store</h3>
+          <p class="text-muted">Create an account to enjoy fast checkout, order tracking, wishlists and exclusive deals curated for you.</p>
+
+          <ul class="list-unstyled small text-muted mt-3">
+            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Fast checkout</li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Order tracking</li>
+            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Secure payments</li>
+          </ul>
+
+          <div class="mt-4">
+            <img src="https://logo.com/image-cdn/images/kts928pd/production/22cf427f4b43437ddf03686900c7518c5172429c-800x800.webp?w=512&q=70&fm=webp" alt="promo" class="img-fluid rounded">
+          </div>
+        </div>
+
+        <!-- Right: forms -->
+        <div class="col-md-7 auth-right">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+              <h4 class="mb-0">Sign in or create an account</h4>
+              <small class="text-muted">Use an existing account or register a new one — it only takes a minute.</small>
+            </div>
+            <div class="d-none d-md-block text-end small text-muted">Already have an account? <a href="#signin" class="fw-semibold" id="gotoSignIn">Sign in</a></div>
+          </div>
+
+          <!-- Tabs for Sign In / Sign Up -->
+          <ul class="nav nav-tabs nav-fill mb-3" id="authTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="signin-tab" data-bs-toggle="tab" data-bs-target="#signin" type="button" role="tab" aria-controls="signin" aria-selected="true">Sign In</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup" type="button" role="tab" aria-controls="signup" aria-selected="false">Sign Up</button>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="authTabsContent">
+
+            <!-- ==== SIGN IN ==== -->
+            <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
+              <form id="signinForm" novalidate>
+                <div class="mb-3 form-floating">
+                  <input type="email" class="form-control" id="signinEmail" placeholder="name@example.com" required>
+                  <label for="signinEmail">Email address</label>
+                  <div class="invalid-feedback">Please enter a valid email.</div>
+                </div>
+
+                <div class="mb-3 form-floating position-relative">
+                  <input type="password" class="form-control" id="signinPassword" placeholder="Password" minlength="6" required>
+                  <label for="signinPassword">Password</label>
+                  <i class="bi bi-eye password-toggle position-absolute" id="toggleSigninPwd" style="right:12px; top:12px"></i>
+                  <div class="invalid-feedback">Password must be at least 6 characters.</div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                    <label class="form-check-label small" for="rememberMe">Remember me</label>
+                  </div>
+                  <a href="#" class="small">Forgot password?</a>
+                </div>
+
+                <div class="d-grid mb-3">
+                  <button type="submit" class="btn btn-primary">Sign In</button>
+                </div>
+
+                <div class="text-center small text-muted mb-3">Or sign in with</div>
+
+                <div class="d-flex gap-2 mb-4">
+                  <button type="button" class="btn btn-outline-secondary social-btn flex-fill"><i class="bi bi-google me-2"></i> Google</button>
+                  <button type="button" class="btn btn-outline-secondary social-btn flex-fill"><i class="bi bi-facebook me-2"></i> Facebook</button>
+                </div>
+
+              </form>
+            </div>
+
+            <!-- ==== SIGN UP ==== -->
+            <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
+              <form id="signupForm" novalidate>
+                <div class="row g-3 mb-3">
+                  <div class="col-md-6 form-floating">
+                    <input type="text" class="form-control" id="firstName" placeholder="First name" required>
+                    <label for="firstName">First name</label>
+                    <div class="invalid-feedback">First name is required.</div>
+                  </div>
+                  <div class="col-md-6 form-floating">
+                    <input type="text" class="form-control" id="lastName" placeholder="Last name">
+                    <label for="lastName">Last name</label>
+                  </div>
+                </div>
+
+                <div class="mb-3 form-floating">
+                  <input type="email" class="form-control" id="signupEmail" placeholder="name@example.com" required>
+                  <label for="signupEmail">Email address</label>
+                  <div class="invalid-feedback">Please enter a valid email.</div>
+                </div>
+
+                <div class="mb-3 form-floating position-relative">
+                  <input type="password" class="form-control" id="signupPassword" placeholder="Choose a password" minlength="6" required>
+                  <label for="signupPassword">Password</label>
+                  <i class="bi bi-eye password-toggle position-absolute" id="toggleSignupPwd" style="right:12px; top:12px"></i>
+                  <div class="invalid-feedback">Password must be at least 6 characters.</div>
+                </div>
+
+                <div class="mb-3 form-check">
+                  <input class="form-check-input" type="checkbox" id="tosCheck" required>
+                  <label class="form-check-label small" for="tosCheck">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</label>
+                  <div class="invalid-feedback">You must accept the terms to continue.</div>
+                </div>
+
+                <div class="d-grid mb-3">
+                  <button type="submit" class="btn btn-success">Create account</button>
+                </div>
+
+                <div class="text-center small text-muted mb-3">Or sign up with</div>
+                <div class="d-flex gap-2 mb-4">
+                  <button type="button" class="btn btn-outline-secondary social-btn flex-fill"><i class="bi bi-google me-2"></i> Google</button>
+                  <button type="button" class="btn btn-outline-secondary social-btn flex-fill"><i class="bi bi-facebook me-2"></i> Facebook</button>
+                </div>
+
+              </form>
+            </div>
+
+          </div>
+
+          <div class="text-center small text-muted mt-3 d-md-none">Already have an account? <a href="#signin" id="gotoSI">Sign in</a></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Simple UI helpers for demo purposes only — replace with real auth calls
+      function togglePassword(toggleId, inputId){
+        const toggle = document.getElementById(toggleId);
+        const input = document.getElementById(inputId);
+        if(!toggle || !input) return;
+        toggle.addEventListener('click', () => {
+          if(input.type === 'password'){ input.type = 'text'; toggle.classList.remove('bi-eye'); toggle.classList.add('bi-eye-slash'); }
+          else { input.type = 'password'; toggle.classList.remove('bi-eye-slash'); toggle.classList.add('bi-eye'); }
+          input.focus();
+        });
+      }
+      togglePassword('toggleSigninPwd','signinPassword');
+      togglePassword('toggleSignupPwd','signupPassword');
+
+      // Form validation and demo submit
+      (function(){
+        'use strict'
+        const signInForm = document.getElementById('signinForm');
+        const signUpForm = document.getElementById('signupForm');
+
+        const showToast = (title, message, kind='info') => {
+          // quick visual feedback using alert — swap for real toast later
+          alert(title + '\n\n' + message);
+        }
+
+        if(signInForm){
+          signInForm.addEventListener('submit', function(e){
+            e.preventDefault();
+            if(!signInForm.checkValidity()){
+              signInForm.classList.add('was-validated');
+              return;
+            }
+            const email = document.getElementById('signinEmail').value.trim();
+            showToast('Signed in', 'Welcome back, ' + email);
+            // In production: call your sign-in endpoint and redirect on success
+          });
+        }
+
+        if(signUpForm){
+          signUpForm.addEventListener('submit', function(e){
+            e.preventDefault();
+            if(!signUpForm.checkValidity()){
+              signUpForm.classList.add('was-validated');
+              return;
+            }
+            const email = document.getElementById('signupEmail').value.trim();
+            showToast('Account created', 'A verification email was sent to ' + email);
+            // In production: call sign-up endpoint, handle errors, show server validation
+          });
+        }
+
+      })();
+
+      // Small UX: clicking "Sign in" link focuses tab
+      document.querySelectorAll('#gotoSignIn, #gotoSI').forEach(el=>{
+        el.addEventListener('click', (e)=>{
+          e.preventDefault();
+          const tab = new bootstrap.Tab(document.querySelector('#signin-tab'));
+          tab.show();
+          const emailInput = document.getElementById('signinEmail');
+          if(emailInput) setTimeout(()=> emailInput.focus(), 200);
+        });
+      });
+
+    </script>
+  </body>
+</html>
